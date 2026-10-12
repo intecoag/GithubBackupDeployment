@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+      timezone: "UTC"
+    labels:
+      - "dependencies"
+    groups:
+      docker:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: chore

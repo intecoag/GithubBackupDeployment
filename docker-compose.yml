@@ -1,0 +1,18 @@
+name: ${COMPOSE_PROJECT_NAME}
+services:
+  github_backup:
+    container_name: github_backup
+    image: inteco.azurecr.io/github-backup:${IMAGE_TAG}
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Zurich
+      - GITHUB_ORG=${GITHUB_ORG}
+      - GITHUB_APP_ID=${GITHUB_APP_ID}
+    volumes:
+      - ${BACKUP_PATH}:/backup
+      - ./key.pem:/run/secrets/github_app_private_key:ro
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 2048m
