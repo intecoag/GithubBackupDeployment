@@ -3,7 +3,7 @@ services:
   github_backup:
     container_name: github_backup
     image: inteco.azurecr.io/github-backup:${IMAGE_TAG}
-    user: "${USER_ID}:{$GROUP_ID}"
+    user: "${USER_ID}:${GROUP_ID}"
     environment:
       - TZ=Europe/Zurich
       - GITHUB_ORG=${GITHUB_ORG}
