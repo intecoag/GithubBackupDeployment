@@ -4,7 +4,7 @@ services:
     container_name: github_backup
     image: inteco.azurecr.io/github-backup:${IMAGE_TAG}
     restart: unless-stopped
-    user: "111:113"
+    user: "${USER_ID}:{$GROUP_ID}"
     environment:
       - TZ=Europe/Zurich
       - GITHUB_ORG=${GITHUB_ORG}
