@@ -8,6 +8,7 @@ services:
       - TZ=Europe/Zurich
       - GITHUB_ORG=${GITHUB_ORG}
       - GITHUB_APP_ID=${GITHUB_APP_ID}
+      - LOG_FORMAT=json
     volumes:
       - ${BACKUP_PATH}:/backup
       - ./key.pem:/run/secrets/github_app_private_key:ro
